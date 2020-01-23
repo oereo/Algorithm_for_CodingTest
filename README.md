@@ -5,6 +5,16 @@
 ## Commit 방법
 
 * commit을 할 때는 자신의 이름으로 올려주세요!
+
+```console
+$ git clone https://github.com/oereo/Algorithm_for_CodingTest.git
+$ cd Algorithm_for_CodingTest
+$ git init
+$ git add .
+$ git commit -m "자신의 이름"
+$ git push origin master
+```
+
 * 100% 정답인 코드를 올려주세요
 * 알고리즘의 답 위에 주석으로 문제까지 적어주면 감사할게요!
 
