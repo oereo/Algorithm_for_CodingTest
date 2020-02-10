@@ -27,7 +27,7 @@ using namespace std;
 vector<int> answer;
 vector<int> cnt;
     int day = 1;
-    int count = 0;
+    int count1 = 0;
 
 void DFS(int start, int cc){
     //day = 0;
@@ -60,11 +60,11 @@ vector<int> solution(vector<int> progresses, vector<int> speeds) {
         while(progresses[i] < 100){
             
             progresses[i] +=speeds[i];
-            count++;
+            count1++;
             
         }
-        cnt.push_back(count);
-        count = 0;
+        cnt.push_back(count1);
+        count1 = 0;
     }
     int max = cnt[0];
     //DFS(cnt[0], 0);
