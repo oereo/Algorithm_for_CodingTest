@@ -19,48 +19,40 @@
 
 #include <string>
 #include <vector>
-#include <iostream>
 #include <algorithm>
-
-
 
 using namespace std;
 
-string solution(vector<int> numbers) {
-    int length = numbers.size();
-    vector<int>arr;
-    string str = "";
-    //for(int i = 0; i<3; i++){
-    //    arr.push_back(i+1);
-    //}
-    
-    //vector<int> num;
-    string answer =  "";
-    
-    sort(numbers.begin(),numbers.end());
-  
-	do{
-		for(int i=0; i<numbers.size(); i++){
-            //num.push_back(to_string(numbers[i]));
-			//cout << numbers[i] << " ";
-            //cout << to_string(numbers[i])<< "";
-            //str.concat(to_string(numbers[i]));
-            str = str+to_string(numbers[i]);
-            
-		}
-		//cout << '\n';
-        //cout << "string:" <<str ;
-        arr.push_back(stoi(str));
-        //cout << '\n';
-        str = "";
+bool comp(const string &a, const string &b)
+{
+	return (b+a) < (a+b);
+}
 
-	}while(next_permutation(numbers.begin(), numbers.end()));
+
+//bool 함수이름 (const 변수형& a, const 변수형& b){
+//    return (a가 b보다 앞에 올 조건);
+//}
+
+string solution(vector<int> numbers) {
+    string answer = "";
+    vector<string> str;
+	
+	for (int i = 0; i < numbers.size(); i++) 
+	{
+		str.push_back(to_string(numbers[i]));
+	}
+
+	sort(str.begin(), str.end(), comp); 
+	
+	for (int i = 0; i < str.size(); i++) 
+	{
+		answer += str[i];
+	}
     
-    sort(arr.begin(), arr.end());
-    //for(int i = 0; i<arr.size(); i++){
-    //    cout<< " " << arr[i];
-    //}
-    answer = to_string(arr[arr.size()-1]);
-  
+	if (answer[0] == '0') 
+	{
+		return "0";
+	}
+    //answer = to_string(numbers[0]);
     return answer;
 }
