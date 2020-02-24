@@ -5,9 +5,12 @@
 ## Commit 방법
 
 * commit을 할 때는 자신의 이름으로 올려주세요!
-
+* 처음으로 push 할때는 git clone 만 수행하고, git pull은 수행하지않습니다.
+* 두번째 push 부터는  git clone 를 수행하지않고, git pull 만 수행합니다.
 ```console
+
 $ git clone https://github.com/oereo/Algorithm_for_CodingTest.git
+$ git pull 
 $ cd Algorithm_for_CodingTest
 $ git init
 $ git add .
