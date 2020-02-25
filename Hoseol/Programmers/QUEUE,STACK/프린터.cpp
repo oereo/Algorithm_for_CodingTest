@@ -22,15 +22,7 @@ int solution(vector<int> priorities, int location) {
         }
         printer.push_back(temp);
     }
-    int cnt=0;
-    
-    //  for(int i=0;i<len;i++)
-    // {
-    //         cout<<printer[i].priority<<":"<<printer[i].target<<endl;
-    // }
-    
-    
-    
+    int cnt=0;  
     while(1)
     {
         print t=printer.front();

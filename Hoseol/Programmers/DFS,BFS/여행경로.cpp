@@ -13,6 +13,7 @@ void DFS(int start, int size, vector<vector<string>> tickets, string dest)
 {
 if(size>=tickets.size())
 {
+    //ptr값 조절을 통해 모든값출력가능
     if(ptr<=4){
     for(int i=0;i<A.size();i++)
     {
