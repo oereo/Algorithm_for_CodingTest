@@ -1,6 +1,6 @@
 # Algorithm_for_CodingTest
 
-겨울방학동안 코테 준비를 위한 공간입니다.
+코테 준비를 위한 공간입니다.
 
 ## Commit 방법
 
