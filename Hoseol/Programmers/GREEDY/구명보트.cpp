@@ -1,10 +1,9 @@
-  #include <string>
+#include <string>
 #include <vector>
 #include <iostream>
 #include <algorithm>
 #include <queue>
 using namespace std;
-
 int solution(vector<int> people, int limit) {
     int answer = 0;
     sort(people.begin(),people.end());
