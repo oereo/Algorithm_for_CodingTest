@@ -15,7 +15,7 @@ int solution(vector<int> money) {
     for(int i = 0; i < len - 3; i++){
         if(DP1[0] + money[i+2] > DP1[1]){
             DP1[0] += money[i+2];
-            swap(DP1[0], DP1[1]);
+            swap(DP1[0], DP1[1]); 
         }
         else{
             DP1[0] = DP1[1];
