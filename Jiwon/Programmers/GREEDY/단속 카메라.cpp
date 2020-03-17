@@ -18,7 +18,7 @@ routes	                                    return
 using namespace std;
 
 int solution(vector<vector<int>> routes) {
-    int answer = 0;    
+    int answer = 0;
     sort(routes.begin(),routes.end());
     answer++;
     int cameraloc = routes[0][1];
@@ -28,7 +28,7 @@ int solution(vector<vector<int>> routes) {
         }
         if(cameraloc < routes[i][0]){
             answer++;
-            cameraloc = routes[i][1]; 
+            cameraloc = routes[i][1];
         }
     }
     return answer;
