@@ -51,6 +51,7 @@ bool findCycleAlgorithm(int here,int size,int from) {
   return false;
 }
 
+//두묶음으로 나뉘어진경우생각못함
 int solution(int n, vector<vector<int>> edges) {
     int answer = 0;
     int len =edges.size();
