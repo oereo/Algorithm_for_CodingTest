@@ -39,6 +39,7 @@ int solution(string skill, vector<string> skill_trees) {
                     newk = k + 1;                    
                     break;
                 }         
+                //첫 스킬이 없으면 no count if()
             }
             
         }
