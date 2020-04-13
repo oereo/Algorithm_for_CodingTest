@@ -29,6 +29,6 @@ long long solution(int n) {
     answer = answer%1234567;
 
 
-
+ 
     return answer;
 }
