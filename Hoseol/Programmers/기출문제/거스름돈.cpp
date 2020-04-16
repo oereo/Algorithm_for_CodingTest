@@ -8,13 +8,11 @@ int solution(int n, vector<int> money) {
     sort(money.begin(),money.end());
     int len =money.size();
     for(int i=0;i<len;i++)
-    {   int number=money[i];
-        for(int j=1;j<=n;j++)
+    {   
+        for(int j=money[i];j<=n;j++)
         {
-            if(j>=number){
-                dp[j]+=dp[j-number];
+                dp[j]+=dp[j-money[i]];
                 dp[j]%=1000000007;
-            }
         }
     }
     return dp[n];
