@@ -13,7 +13,6 @@
 예:
 skill	skill_trees	                        return
 "CBD"	["BACDE", "CBADF", "AECB", "BDA"]	2
-
 */
 
 #include <string>

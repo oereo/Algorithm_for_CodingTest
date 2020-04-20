@@ -28,9 +28,8 @@ long long solution(int n) {
 
     for(int i = 3; i <= n; i++){
         dp[i] = dp[i-1] + dp[i-2];
+        dp[i] %= 1234567;
     }
-    
-    answer = dp[n] % 1234567;
 
-    return answer;
+    return dp[n];
 }

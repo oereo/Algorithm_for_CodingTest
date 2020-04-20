@@ -31,24 +31,24 @@ int solution(vector<int> budgets, int M) {
     }
     else{
         while(left + 1 < right){
-        mid = (right + left) / 2;
-        budgetstotal = 0;
-        for(int i = 0 ; i < budgets.size(); i++){
-            if( mid > budgets[i]){
-                budgetstotal += budgets[i];
+            mid = (right + left) / 2;
+            budgetstotal = 0;
+            for(int i = 0 ; i < budgets.size(); i++){
+                if( mid > budgets[i]){
+                    budgetstotal += budgets[i];
+                }
+                else{
+                    budgetstotal += mid;
+                }
+            }
+            if(budgetstotal > M){
+                right = mid;
             }
             else{
-                budgetstotal += mid;
+                left = mid;
             }
-        }
-        if(budgetstotal > M){
-            right = mid;
-        }
-        else{
-            left = mid;
-        }
         }   
-    answer = left;    
+        answer = left;    
     }
     return answer;
 }
