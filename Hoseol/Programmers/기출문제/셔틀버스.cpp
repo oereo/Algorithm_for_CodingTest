@@ -5,8 +5,9 @@
 #include <iostream>
 using namespace std;
 vector<int> T;
-string solution(int n, int t, int m, vector<string> timetable) {
-    string answer = "";
+
+void parshing(vector<string> timetable)
+{
     int len =timetable.size();
     for(int i=0;i<len;i++)
     {
@@ -17,9 +18,12 @@ string solution(int n, int t, int m, vector<string> timetable) {
         time+=atoi(temp.c_str());
         T.push_back(time);
     }
-    sort(T.begin(),T.end());
-    int bus_end=540+(n-1)*t; 
-    int bus_num=0; int ans;
+
+}
+
+void before_last_bus(int bus_end,int t,int m)
+{
+    int bus_num=0;
     for(int bus_time=540;bus_time<=bus_end-t;bus_time+=t)
     {
         int end=0; int how_many=0; bus_num++;
@@ -36,10 +40,21 @@ string solution(int n, int t, int m, vector<string> timetable) {
             cout<<bus_time<<","<<end<<endl;
             T.erase(T.begin(),T.begin()+end); 
     }
-    if(T.size()>=m){
+}
+
+
+string solution(int n, int t, int m, vector<string> timetable) {
+    string answer = "";
+    parshing(timetable);
+    sort(T.begin(),T.end());
+    int bus_end=540+(n-1)*t; 
+    int ans;
+    before_last_bus(bus_end,t,m);
+    if(T.size()>=m){ //m명까지탈수있을때
     ans=T[m-1]-1;}
-    else{ans=T[T.size()-1]; ans=max(bus_end,ans);}
+    else{ans=T[T.size()-1]; ans=max(bus_end,ans);}//모두가탈수있을떄
     ans=min(ans,bus_end);
+    
     string s=""; string b="";
     if((ans/60)<10){s+="0";}
     s+=to_string(ans/60);
