@@ -30,11 +30,9 @@ int main()
 				map[y + dir[dp[j][siz]][0]][x + dir[dp[j][siz]][1]] = 1;
 				y = y + dir[dp[j][siz]][0]; x = x + dir[dp[j][siz]][1];
 			}
-
-
 		}
-
 	}
+
 	int answer = 0;
 	for (int i = 0; i < 100; i++)
 	{
@@ -48,6 +46,5 @@ int main()
 		}
 	}
 	cout << answer << endl;
-
 
 }
