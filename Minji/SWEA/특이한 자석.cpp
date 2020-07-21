@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 
-#include<iostream>
+#include <iostream>
 #include <vector>
 #include <queue>
 #include <cmath>
@@ -12,7 +12,8 @@ vector<bool> visit;
 vector<int> nums;
 vector<int> dirs;
 
-void find(int num, int dir) {
+void find(int num, int dir)
+{
 	visit[num] = 1;
 	nums.push_back(num);
 	dirs.push_back(dir);
@@ -22,21 +23,25 @@ void find(int num, int dir) {
 		find(num + 1, -dir);
 }
 
-void move() {
+void move()
+{
 	int len = nums.size();
-	for (int i = 0; i < len; i++) {
-		if (dirs[i] == 1) {
+	for (int i = 0; i < len; i++)
+	{
+		if (dirs[i] == 1)
+		{
 			magnet[nums[i]].push_front(magnet[nums[i]][7]);
 			magnet[nums[i]].pop_back();
 		}
-		else {
+		else
+		{
 			magnet[nums[i]].push_back(magnet[nums[i]][0]);
 			magnet[nums[i]].pop_front();
 		}
 	}
 }
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
 	int test_case;
 	int T, K;
@@ -44,18 +49,22 @@ int main(int argc, char** argv)
 	//freopen("input.txt", "r", stdin);
 	cin >> T;
 
-	for (test_case = 1; test_case <= T; ++test_case) {
-		// ÀÔ·Â ¹Ş±â
+	for (test_case = 1; test_case <= T; ++test_case)
+	{
+		// ì…ë ¥ ë°›ê¸°
 		cin >> K;
 		magnet.assign(4, deque<int>(8));
-		for (int i = 0; i < 4; i++)	{
-			for (int j = 0; j < 8; j++)	{
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j < 8; j++)
+			{
 				cin >> magnet[i][j];
 			}
 		}
 
-		// ÀÚ¼® ÀÌµ¿
-		for (int i = 0; i < K; i++)	{
+		// ìì„ ì´ë™
+		for (int i = 0; i < K; i++)
+		{
 			int num, dir;
 			cin >> num >> dir;
 
@@ -67,11 +76,12 @@ int main(int argc, char** argv)
 			move();
 		}
 
-		// Á¡¼ö ±¸ÇÏ±â
+		// ì ìˆ˜ êµ¬í•˜ê¸°
 		int answer = 0;
-		for (int i = 0; i < 4; i++)	{
+		for (int i = 0; i < 4; i++)
+		{
 			if (magnet[i][0])
-				answer += (int) pow(2, i);
+				answer += (int)pow(2, i);
 		}
 		cout << "#" << test_case << " " << answer << endl;
 	}
