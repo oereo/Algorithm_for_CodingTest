@@ -1,12 +1,13 @@
 # Algorithm_for_CodingTest
 
-코테 준비를 위한 공간입니다.
+It is a space for coding test preparation.
 
-## Commit 방법
+## Commit Rule
 
-* commit을 할 때는 자신의 이름으로 올려주세요!
-* 처음으로 push 할때는 git clone 만 수행하고, git pull은 수행하지않습니다.
-* 두번째 push 부터는  git clone 를 수행하지않고, git pull 만 수행합니다.
+* When you commit, please upload it in your own name!
+* When pushing for the first time, only git clone is executed, but not git pull.
+* From the second push, git clone is not performed, only git pull is performed.
+
 ```console
 
 $ git clone https://github.com/oereo/Algorithm_for_CodingTest.git
@@ -18,14 +19,20 @@ $ git commit -m "자신의 이름"
 $ git push origin master
 ```
 
-* 알고리즘의 답 위에 주석으로 문제까지 적어주면 감사할게요!
+* I would be grateful if you could write down the problem in the comments on the answer of the algorithm!!! And add comments to the code
 
-## 구조 
+## Structure 
 
-* 크게 백준과 프로그래머스 폴더로 나누어 질 예정입니다.
-* 각각의 폴더안에 맞는 알고리즘 폴더 안에 cpp파일을 넣어주세요!
+* It will be divided into "Baekjoon", "SW Expert Academy" and "Programmers" folders.
+* Put the "cpp file(or python file)" in the algorithm folder that fits in each folder!
 
 ## 방식
 
-* 자유롭게 올려주시면 됩니다!
-* 추가할 사항은 자유롭게 추가해주세요!
+* Feel free to upload!
+* Feel free to add anything to add
+
+## CodingTest Page
+
+[Baekjoon](https://www.acmicpc.net/)
+[Programmers](https://programmers.co.kr/)
+[SW Expert Academy](https://swexpertacademy.com/main/main.do)
