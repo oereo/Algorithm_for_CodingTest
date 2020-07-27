@@ -21,8 +21,7 @@ typedef struct StairUser {
 
 int N;
 vector<vector<int> > map;
-vector<Pinfo> 
-pinfo;
+vector<Pinfo> pinfo;
 vector<Pinfo> temp;
 vector<int> stair1_users;
 vector<int> stair2_users;

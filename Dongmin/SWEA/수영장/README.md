@@ -43,3 +43,7 @@
     현재 갱신된 minCost보다 커지는 경우 미리 call stack을 반환하여 탐색 노드를 감소시킬 수 있다.
 
     ex))
+
+  - Dynamic Programming
+
+    DP로도 가능함을 스터디를 통해 확인되었다. 나중에 시도해볼것.

@@ -25,7 +25,17 @@ Pos manhole;
 int L;
 vector<vector<int> > map;
 vector<vector<bool> > visited;
-vector<tunst> ts;
+// 1:좌, 2:상, 3:우, 4:하
+vector<tunst> ts = {
+    tunst{{-100}, {-100}, {-100}},
+    tunst{{0,0,-1,1}, {1,-1,0,0}, {1,2,3,4}},
+    tunst{{-1,1}, {0,0}, {2,4}},
+    tunst{{0,0}, {-1,1}, {1,3}},
+    tunst{{-1,0}, {0,1}, {2,3}},
+    tunst{{1,0}, {0,1}, {3,4}},
+    tunst{{0,1}, {-1,0}, {1,4}},
+    tunst{{-1,0}, {0,-1}, {1,2}}
+    };
 
 void getInput() {
     cin >> N >> M >> manhole.row >> manhole.col >> L;
@@ -37,81 +47,6 @@ void getInput() {
             cin >> map[i][j];
         }
     }
-    
-    ts.assign(8, {vector<int>(), vector<int>(), vector<int>()});
-    ts[0].dr.push_back(-100);
-    ts[0].dc.push_back(-100);
-    ts[0].connected.push_back(-100);
-    
-    ts[1].dr.push_back(0);
-    ts[1].dc.push_back(1);
-    ts[1].dr.push_back(0);
-    ts[1].dc.push_back(-1);
-    ts[1].dr.push_back(-1);
-    ts[1].dc.push_back(0);
-    ts[1].dr.push_back(1);
-    ts[1].dc.push_back(0);
-    ts[1].connected.push_back(1);    // 1:좌, 2:상, 3:우, 4:하
-    ts[1].connected.push_back(2);
-    ts[1].connected.push_back(3);
-    ts[1].connected.push_back(4);
-
-    ts[2].dr.push_back(-1);
-    ts[2].dr.push_back(1);
-    ts[2].dc.push_back(0);
-    ts[2].dc.push_back(0);
-    ts[2].connected.push_back(2);
-    ts[2].connected.push_back(4);
-
-    ts[3].dr.push_back(0);
-    ts[3].dr.push_back(0);
-    ts[3].dc.push_back(-1);
-    ts[3].dc.push_back(1);
-    ts[3].connected.push_back(1);
-    ts[3].connected.push_back(3);
-
-    ts[4].dr.push_back(-1);
-    ts[4].dr.push_back(0);
-    ts[4].dc.push_back(0);
-    ts[4].dc.push_back(1);
-    ts[4].connected.push_back(2);
-    ts[4].connected.push_back(3);
-
-    ts[5].dr.push_back(1);
-    ts[5].dr.push_back(0);
-    ts[5].dc.push_back(0);
-    ts[5].dc.push_back(1);
-    ts[5].connected.push_back(3);
-    ts[5].connected.push_back(4);
-    
-    ts[6].dr.push_back(0);
-    ts[6].dr.push_back(1);
-    ts[6].dc.push_back(-1);
-    ts[6].dc.push_back(0);
-    ts[6].connected.push_back(1);
-    ts[6].connected.push_back(4);
-
-    ts[7].dr.push_back(-1);
-    ts[7].dr.push_back(0);
-    ts[7].dc.push_back(0);
-    ts[7].dc.push_back(-1);
-    ts[7].connected.push_back(1);
-    ts[7].connected.push_back(2);
-    // for(tunst el:ts) {
-    //     printf("\ndr[i]=");
-    //     for(int r:el.dr) {
-    //         printf("%d ", r);
-    //     }
-    //     printf("\ndc[i]=");
-    //     for(int c:el.dc) {
-    //         printf("%d ", c);
-    //     }
-    //     printf("\nconnected[i]=");
-    //     for(int con:el.connected) {
-    //         printf("%d ", con);
-    //     }
-    //            
-    // }
 }
 
 bool isValidPos(Pos& pos) {
