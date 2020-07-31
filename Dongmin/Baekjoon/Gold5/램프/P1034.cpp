@@ -7,7 +7,7 @@ typedef struct Pos {
     int col;
 } Pos;
 int N, M, K;
-vector<string> ramps;
+vector<string> lamps;
 vector<int> offnum;
 int ans=0;
 
@@ -17,7 +17,7 @@ void getInput() {
     offnum.assign(N, 0);
     for(int i=0; i<N; i++) {
         cin >> temp;
-        ramps.push_back(temp);
+        lamps.push_back(temp);
         for(int j=0; j<M; j++) {
             if(temp[j] - '0' == 0) {
                 offnum[i] += 1;
@@ -33,7 +33,7 @@ void solution() {
         int cnt = 0;
         if(offnum[i] <= K && offnum[i]%2 == K%2) {
             for(int j=0; j<N; j++) {
-                if(ramps[i] == ramps[j]) {
+                if(lamps[i] == lamps[j]) {
                     cnt++;
                 }
             }
