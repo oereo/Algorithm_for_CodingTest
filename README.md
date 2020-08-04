@@ -33,6 +33,6 @@ $ git push origin master
 
 ## CodingTest Page
 
-[Baekjoon](https://www.acmicpc.net/)
-[Programmers](https://programmers.co.kr/)
-[SW Expert Academy](https://swexpertacademy.com/main/main.do)
+[Link to Baekjoon](https://www.acmicpc.net/)
+[Link to Programmers](https://programmers.co.kr/)
+[Link to SW Expert Academy](https://swexpertacademy.com/main/main.do)
