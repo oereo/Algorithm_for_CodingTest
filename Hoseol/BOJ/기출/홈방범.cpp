@@ -1,22 +1,11 @@
 #include <vector>
 #include<iostream>
 #include <algorithm>
+#include <cstring>
 using namespace std;
 int Map[100][100];
 int N; int M; int ANS;
 
-
-void init()
-{
-	for (int i = 0; i < 100; i++)
-	{
-		for (int j = 0; j < 100; j++)
-		{
-			Map[i][j] = 0;
-		}
-	}
-	N = 0; M = 0; ANS = 0;
-}
 
 int howMany(int a, int b, int range)
 {
@@ -48,7 +37,8 @@ int main(int argc, char** argv)
 
 	for (test_case = 1; test_case <= T; ++test_case)
 	{
-		init();
+		N = 0; M = 0; ANS = 0;
+		memset(Map, 0, sizeof(Map));
 		cin >> N >> M;
 		for (int i = 0; i < N; i++)
 		{
