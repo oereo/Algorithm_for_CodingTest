@@ -70,7 +70,5 @@ int main()
 	DFS(r, c, d,0,0);
 	cout << ANS;
 
-	
-
 
 }
