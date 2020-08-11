@@ -57,6 +57,7 @@ int getDistance(const Pos& pos, const Pos& charger) {
 
 void solution(int testnum) {
     int ans=0;
+    // t=0에서의 충전량 설정
     for(int i=0;i<2;i++){
         int max = 0;
         for(int j=0;j<A;j++){
@@ -68,6 +69,7 @@ void solution(int testnum) {
         ans += max;
     }
 
+    // t>=1에서의 충전량
     for(int m=0; m<M; m++) {
         for(int i=0;i<2;i++){
             users[i].pos = users[i].pos + Pos{dr[users[i].trace[m]], dc[users[i].trace[m]]};
@@ -88,10 +90,7 @@ void solution(int testnum) {
                 if(i==j && usedCharger[0][i] && usedCharger[1][j]) {
                     sum = chargers[i].perf;
                 }
-                else if(i==j) {
-                    sum = usedCharger[0][i]*chargers[i].perf + usedCharger[1][j]*chargers[j].perf;
-                }
-                else if(i!=j) {
+                else {
                     sum = usedCharger[0][i]*chargers[i].perf + usedCharger[1][j]*chargers[j].perf;
                 }
 
