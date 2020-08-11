@@ -3,48 +3,16 @@
 #include <vector>
 using namespace std;
 
-int map[11][11][9];
-vector<int> BC1;
-vector<int> BC2;
-vector<int> choice;
-int x1, y1, x2, y2, len1, len2, MAX;
-
-void DFS()
-{
-    if (choice.size() == 2)
-    {
-        int result = 0;
-        if (choice[0] == choice[1])
-            result = map[x1][y1][choice[0]];
-        else
-        {
-            result += map[x1][y1][choice[0]];
-            result += map[x2][y2][choice[1]];
-        }
-        if (MAX < result)
-            MAX = result;
-        return;
-    }
-
-    for (int i = 0; i < len1; i++)
-    {
-        choice.push_back(BC1[i]);
-        for (int j = 0; j < len2; j++)
-        {
-            choice.push_back(BC2[j]);
-            DFS();
-            choice.pop_back();
-        }
-        choice.pop_back();
-    }
-}
-
 int main(int argc, char **argv)
 {
-    int test_case, i, j, a, b, c, total;
+    int test_case, i, j, a, b, c, total, result;
     int T, M, A, X, Y, C, P;
+    int x1, y1, x2, y2, len1, len2, MAX;
+    int map[11][11][9];
     int user1[101];
     int user2[101];
+    vector<int> BC1;
+    vector<int> BC2;
     int dir[5][2] = {{0, 0}, {-1, 0}, {0, 1}, {1, 0}, {0, -1}};
     cin >> T;
     for (test_case = 1; test_case <= T; ++test_case)
@@ -104,8 +72,25 @@ int main(int argc, char **argv)
             len1 = BC1.size();
             len2 = BC2.size();
 
+            // 최대 충전량 구하기
             MAX = 0;
-            DFS();
+            for (a = 0; a < len1; a++)
+            {
+                for (b = 0; b < len2; b++)
+                {
+                    result = 0;
+                    if (BC1[a] == BC2[b])
+                        result = map[x1][y1][BC1[a]];
+                    else
+                    {
+                        result += map[x1][y1][BC1[a]];
+                        result += map[x2][y2][BC2[b]];
+                    }
+                    if (MAX < result)
+                        MAX = result;
+                }
+            }
+
             total += MAX;
 
             BC1.clear();
