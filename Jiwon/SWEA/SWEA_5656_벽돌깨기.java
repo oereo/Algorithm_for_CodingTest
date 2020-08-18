@@ -64,12 +64,12 @@ public class SWEA_5656_벽돌깨기 {
 				hit(temp[i]);
 			}
 
-			for (int i = 0; i < H; i++) {
-				for (int j = 0; j < W; j++) {
-					System.out.print(tempMap[i][j]);
-				}
-				System.out.println();
-			}
+//			for (int i = 0; i < H; i++) {
+//				for (int j = 0; j < W; j++) {
+//					System.out.print(tempMap[i][j]);
+//				}
+//				System.out.println();
+//			}
 
 			int cnt = 0;
 			for (int i = 0; i < H; i++) {
