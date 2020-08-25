@@ -39,15 +39,6 @@ void getInput() {
         }
     }
 }
-void printMap() {
-    for(int i=340; i<360; i++){
-        for(int j=340; j<360; j++) {
-            printf("(%d,%d,%d,%d) ", map[i][j].time,map[i][j].vitality, map[i][j].life, map[i][j].isDead);
-        }
-        printf("\n");
-    }
-    printf("\n");
-}
 
 void solution(int testnum) {
     for(int k=1; k<=K; k++) {
