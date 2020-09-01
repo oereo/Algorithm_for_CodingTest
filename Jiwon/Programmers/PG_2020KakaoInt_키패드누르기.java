@@ -11,105 +11,59 @@ public class PG_2020KakaoInt_키패드누르기 {
     public static String solution(int[] numbers, String hand) {
         StringBuilder answer = new StringBuilder();
 
-        lPosition lp = new lPosition(3, 0);
-        rPosition rp = new rPosition(3, 2);
-        numPosition np = new numPosition(0, 0);
+        int l = 10;
+        int r = 12;
 
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] == 1 || numbers[i] == 4 || numbers[i] == 7) {
+        for (int number : numbers) {
+            if (number == 1 || number == 4 || number == 7) {
                 answer.append("L");
-                if (numbers[i] == 1) {
-                    lp.r = 0;
-                    lp.c = 0;
-                } else if (numbers[i] == 4) {
-                    lp.r = 1;
-                    lp.c = 0;
-                } else if (numbers[i] == 7) {
-                    lp.r = 2;
-                    lp.c = 0;
-                }
-            } else if (numbers[i] == 3 || numbers[i] == 6 || numbers[i] == 9) {
+                l = number;
+            } else if (number == 3 || number == 6 || number == 9) {
                 answer.append("R");
-                if (numbers[i] == 3) {
-                    rp.r = 0;
-                    rp.c = 2;
-                } else if (numbers[i] == 6) {
-                    rp.r = 1;
-                    rp.c = 2;
-                } else if (numbers[i] == 9) {
-                    rp.r = 2;
-                    rp.c = 2;
-                }
+                r = number;
             } else {
-                if (numbers[i] == 0) {
-                    np.r = 3;
-                    np.c = 1;
-                } else if (numbers[i] == 2) {
-                    np.r = 0;
-                    np.c = 1;
-                } else if (numbers[i] == 5) {
-                    np.r = 1;
-                    np.c = 1;
-                } else if (numbers[i] == 8) {
-                    np.r = 2;
-                    np.c = 1;
-                }
+                int distanceL = getDist(l, number);
+                int distanceR = getDist(r, number);
 
-                if (Math.abs(np.r - lp.r) + Math.abs(np.c - lp.c) > Math.abs(np.r - rp.r)
-                        + Math.abs(np.c - rp.c)) {
+                if (distanceL > distanceR) {
                     answer.append("R");
-                    rp.r = np.r;
-                    rp.c = np.c;
-                } else if (Math.abs(np.r - lp.r) + Math.abs(np.c - lp.c) < Math.abs(np.r - rp.r)
-                        + Math.abs(np.c - rp.c)) {
+                    r = number;
+                } else if (distanceL < distanceR) {
                     answer.append("L");
-                    lp.r = np.r;
-                    lp.c = np.c;
-                } else if ((Math.abs(np.r - lp.r) + Math.abs(np.c - lp.c)) == (Math.abs(np.r - rp.r)
-                        + Math.abs(np.c - rp.c))) {
-                    if (hand == "right") {
+                    l = number;
+                } else {
+                    if (hand.equals("right")) {
                         answer.append("R");
-                        rp.r = np.r;
-                        rp.c = np.c;
+                        r = number;
                     } else {
                         answer.append("L");
-                        lp.r = np.r;
-                        lp.c = np.c;
+                        l = number;
                     }
                 }
+
             }
         }
-        System.out.println(answer.toString());
+
         return answer.toString();
     }
 
-    static class lPosition {
-        int r, c;
-
-        public lPosition(int r, int c) {
-            this.r = r;
-            this.c = c;
+    private static int getDist(int location, int number) {
+        if (number == 0) {
+            number = 11;
         }
 
-    }
-
-    static class rPosition {
-        int r, c;
-
-        public rPosition(int r, int c) {
-            this.r = r;
-            this.c = c;
+        if (location == 0) {
+            location = 11;
         }
 
+        int locationX = (location - 1) / 3;
+        int locationY = (location - 1) % 3;
+
+        int numberX = (number - 1) / 3;
+        int numberY = (number - 1) % 3;
+
+        return Math.abs(locationX - numberX) + Math.abs(locationY - numberY);
     }
 
-    static class numPosition {
-        int r, c;
 
-        public numPosition(int r, int c) {
-            this.r = r;
-            this.c = c;
-        }
-
-    }
 }
