@@ -112,6 +112,5 @@ vector<int> solution(vector<string> words, vector<string> queries) {
             answer.push_back(node->leaf_num);
         }
     }
-
     return answer;
 }

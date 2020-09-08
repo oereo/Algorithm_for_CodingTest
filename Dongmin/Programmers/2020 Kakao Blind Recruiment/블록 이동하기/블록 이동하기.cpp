@@ -97,8 +97,6 @@ int solution(vector<vector<int>> board) {
     visited[1][0][0] = 1;
     while(!q.empty()) {
         Robot r = q.front();
-        //cout << "time:" << r.time << ", pos=(" << r.pos.row <<", " << r.pos.col <<"), isHorizontal=" << r.isHorizontal <<
-        //", prevRot=" << r.prevRot << "\n"; 
         q.pop();
 
         if(approachGoal(r)) {
