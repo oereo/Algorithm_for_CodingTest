@@ -16,10 +16,10 @@ bool cmp(vector<int> &a, vector<int> &b)
     if (a[1] == b[1])
         return a[0] < b[0];
     else
-        return a[1] > b[1];
+        return a[0] > b[0];
 }
 
-vector<int> precircuit(const Node *node, vector<int> &pre) // 현재 노드 - 왼쪽 노드 - 오른쪽 노드
+vector<int> precircuit(const Node *node, vector<int> &pre)  // 현재 노드 - 왼쪽 노드 - 오른쪽 노드
 {
     pre.push_back(node->index);
     if (node->left != NULL)
@@ -40,6 +40,7 @@ vector<int> postcircuit(const Node *node, vector<int> &post) // 왼쪽 노드 - 
     return post;
 }
 
+
 vector<vector<int>> solution(vector<vector<int>> nodeinfo)
 {
     // 인덱스 추가
@@ -49,26 +50,22 @@ vector<vector<int>> solution(vector<vector<int>> nodeinfo)
     // y값 내림차순, x값 오름차순 정렬
     sort(nodeinfo.begin(), nodeinfo.end(), cmp);
 
+
     // 트리 저장
-    Node root = {nodeinfo[0][0], nodeinfo[0][1], nodeinfo[0][2], NULL, NULL};
-    Node *iter;
-    for (int i = 1; i < nodeinfo.size(); i++)
-    {
+    Node root = { nodeinfo[0][0], nodeinfo[0][1], nodeinfo[0][2], NULL, NULL };
+    Node * iter;
+    for (int i = 1; i < nodeinfo.size(); i++) {
         iter = &root;
-        while (1)
-        {
-            if (iter->x > nodeinfo[i][0])
-            { // 왼쪽 노드
-                if (iter->left == NULL)
-                {
+        while (1) {
+            if (iter->x > nodeinfo[i][0]) { // 왼쪽 노드
+                if (iter->left == NULL) {
                     iter->left = new Node{nodeinfo[i][0], nodeinfo[i][1], nodeinfo[i][2], NULL, NULL};
                     break;
                 }
                 else
                     iter = iter->left;
             }
-            else
-            { // 오른쪽 노드
+            else{   // 오른쪽 노드
                 if (iter->right == NULL)
                 {
                     iter->right = new Node{nodeinfo[i][0], nodeinfo[i][1], nodeinfo[i][2], NULL, NULL};
@@ -77,7 +74,7 @@ vector<vector<int>> solution(vector<vector<int>> nodeinfo)
                 else
                     iter = iter->right;
             }
-        }
+        }        
     }
 
     // 전위 순회, 후위 순회

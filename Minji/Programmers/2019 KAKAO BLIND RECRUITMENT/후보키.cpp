@@ -1,7 +1,8 @@
 #include <string>
 #include <vector>
-#include <unordered_map>
+#include <map>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 
@@ -11,6 +12,11 @@ int solution(vector<vector<string>> relation)
     int row = relation.size();
     int count = 1;
     vector<vector<int>> result;
+    vector<int> num(col); // 0 ~ col-1 숫자가 들어있는 벡터
+    for (int i = 0; i < col; i++)
+    {
+        num[i] = i;
+    }
     while (count <= col)
     {
         vector<int> idx(col);
@@ -25,13 +31,13 @@ int solution(vector<vector<string>> relation)
             for (int i = 0; i < col; i++)
             {
                 if (idx[i] == 1)
-                    temp.push_back(i);
+                    temp.push_back(num[i]);
             }
 
             // 유일성 체크
             int temp_len = temp.size();
             bool check = true;
-            unordered_map<string, int> dic;
+            map<string, int> dic;
             for (int i = 0; i < row; i++)
             {
                 string a = "";
