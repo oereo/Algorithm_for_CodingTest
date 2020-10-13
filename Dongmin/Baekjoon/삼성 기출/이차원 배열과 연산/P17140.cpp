@@ -12,7 +12,7 @@ bool cmp(const NumFreq& a, const NumFreq& b) {
 }
 int r,c,k;
 int rnum, cnum;
-int arr[500][500];
+int arr[201][201];
 void getInput() {
     cin >> r >> c >> k;
     rnum = 3, cnum = 3;
@@ -128,14 +128,6 @@ void solution() {
         else {
             Coperation();
         }
-
-        for(int i=1; i<=rnum; i++) {
-            for(int j=1; j<=cnum; j++) {
-                cout << arr[i][j] << " ";
-            }
-            cout << endl;
-        }
-        cout <<endl << endl;
         ans += 1; 
     }
     printf("%d", ans);
