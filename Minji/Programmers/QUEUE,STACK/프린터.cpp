@@ -1,26 +1,36 @@
-#include <string>
+#include <queue>
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 using namespace std;
 
 int solution(vector<int> priorities, int location) {
-    vector<pair<int,int>> v;
-    int len = priorities.size();
-    for(int i = 0; i < len; i++) {
-    	v.push_back({priorities[i],i});
+	// 큐에 인덱스 저장
+	queue<int> q;
+	int len = priorities.size();
+	for(int i = 0; i < len; i++) {
+		q.push(i);
 	}
-	int index = 0;
-    int answer = 0;
+    
+	// 우선순위에 따라 인쇄 수행
+	int answer = 0;
+	int MAX = *max_element(priorities.begin(), priorities.end());
+	int now;
 	while(1){
-		if(v[index%len].first == *max_element(priorities.begin(), priorities.end())){
+		now = q.front();
+		if(priorities[now] == MAX){
 			answer++;
-            priorities[index%len] = 0;
-            if(v[index%len].second == location)
-                return answer;
+			priorities[now] = 0;
+			MAX = *max_element(priorities.begin(), priorities.end());
+            
+			if(now == location)
+				return answer;
+			else
+				q.pop();
 		}
-        index++;
+		else {
+			q.push(now);
+			q.pop();
+		}
 	}
-	return 0;
 }
