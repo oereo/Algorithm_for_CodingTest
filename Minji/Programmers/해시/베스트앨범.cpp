@@ -1,11 +1,10 @@
 #include <string>
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include <algorithm>
-
 using namespace std;
 
-bool cmp(const vector<int> &A, const vector<int> &B){
+bool cmp(const vector<int> &A, const vector<int> &B){    
     if(A[0] > B[0])
         return true;
     else if (A[0] == B[0]){
@@ -21,11 +20,12 @@ bool cmp(const vector<int> &A, const vector<int> &B){
 vector<int> solution(vector<string> genres, vector<int> plays) {
     // 장르별 총 재생 수 구하기
     int len = plays.size();
-    map<string, int> dic;
+    unordered_map<string, int> dic;
     for(int i = 0; i < len; i++){
         dic[genres[i]] += plays[i];
     }
-    // 장르별 총 재생 수, 노래 재생 수, 노래 인덱스 저장
+    
+    // 장르별 총 재생 수, 노래 재생 수, 노래 고유 번호 저장
     vector<vector<int>> result(len, vector<int>(3));
     for(int i = 0; i < len; i++){
         result[i][0] = dic[genres[i]];
