@@ -30,8 +30,6 @@ def dfs(x,y, result, n, graph, direction):
             direction = 4
         elif direction == 4:
             direction = 1
-    print(x, y)
-    print(direction)
         
     if direction == 1:
         graph[x][y]=result
